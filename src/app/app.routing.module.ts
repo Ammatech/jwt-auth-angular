@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'secret-random-number',
-    loadChildren: './random/random.module#RandomModule',
+    loadChildren: () => import('./random/random.module').then(m => m.RandomModule),
     canActivate: [RandomGuard],
     canLoad: [RandomGuard]
   }
